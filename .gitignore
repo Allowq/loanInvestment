@@ -26,3 +26,5 @@ hs_err_pid*
 /services/target/
 /mvc/target/
 /.idea/
+
+frontend/node_modules
