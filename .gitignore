@@ -26,6 +26,3 @@ hs_err_pid*
 /services/target/
 /mvc/target/
 /.idea/
-mvc/src/main/java/
-services/src/main/java/
-services/src/test/
