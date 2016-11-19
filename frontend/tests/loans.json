@@ -1,0 +1,26 @@
+[
+    {  
+        "uid": "1",
+        "investor": "loan_investor1",
+        "risk": "25%",
+        "contract": "q123dsfr521"
+    },
+    {  
+        "uid": "2",
+        "investor": "loan_investor2",
+        "risk": "22%",
+        "contract": "cxvr231fgtse"
+    },
+    {  
+        "uid": "3",
+        "investor": "loan_investor3",
+        "risk": "12%",
+        "contract": "xcv13123"
+    },
+    {  
+        "uid": "4",
+        "investor": "loan_investor4",
+        "risk": "2%",
+        "contract": "q1savvvvv1"
+    }
+]

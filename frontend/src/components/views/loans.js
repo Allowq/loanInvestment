@@ -1,39 +1,52 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import InvestmentOperationts from './operations/loans';
+import GetFetchParams from './../../http';
+import { Router, Route, Link, browserHistory } from 'react-router';
 
 class Loans extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            operations: []
+        };
+    }
+
+    componentDidMount() {
+        var data = {
+            uuid: window.uid
+        };
+        
+        //CreateHttpRequest('/auth', data)
+        fetch('/tests/loans.json', GetFetchParams(data))
+            .then(response => response.json())
+            .then((responseJSON) => {
+                this.setState({
+                    operations: responseJSON
+                });
+                return responseJSON;
+            })
+            .catch(error => console.log(error));
+    }
+
+    removeHandler (uid) {
+        var ops = this.state.operations;
+        var op = ops.filter(op => op.uid == uid)[0];
+        if(op) {
+            var index = ops.indexOf(op);
+            ops.splice(index, 1);
+            this.setState({
+                operations: ops 
+            });
+        }
     }
 
     render () {        
-        var operations = [
-            {  
-                uid: Math.random(),
-                investor: "loan_investor1",
-                risk: '25%'
-            },
-            {  
-                uid: Math.random(),
-                investor: "loan_investor2",
-                risk: '15%'
-            },
-            {  
-                uid: Math.random(),
-                investor: "loan_investor3",
-                risk: '2%'
-            },
-            {  
-                uid: Math.random(),
-                investor: "loan_investor4",
-                risk: '5%'
-            }
-        ];
+        var operations = this.state.operations;
         return (
             <div> 
                 <h2>Loans</h2>
-                <InvestmentOperationts operations={operations} />
+                <InvestmentOperationts onRemove={this.removeHandler.bind(this)} operations={operations} />
             </div>
         );
     }

@@ -2,14 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import {Navbar, Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
-import Link from 'react-router';
+import { Router, Route, Link, browserHistory } from 'react-router';
 
 class Header extends React.Component {
 
-	_logout() {
-		window.uid = '';
-		location.reload();
-	}
+	  _logout() {
+        window.uid = '';
+        browserHistory.push('/auth');
+	  }
 
     render() {
         let style = {

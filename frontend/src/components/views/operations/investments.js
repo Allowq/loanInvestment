@@ -10,8 +10,9 @@ class InvestmentOperations extends React.Component {
             operations.push((<Operation 
                 key={o.uid}
                 borrower={o.borrower}
-                uniqueContract={o.uniqueContract}
+                contract={o.contract}
                 risk={o.risk}
+                remove={()=>this.props.onRemove(o.uid)}
             />));
         });
 
@@ -22,7 +23,7 @@ class InvestmentOperations extends React.Component {
                         <thead>
                             <tr>
                                 <th>Borrower</th>
-                                <th>Unique contract</th>
+                                <th>Contract</th>
                                 <th>Risk</th>
                                 <th></th>
                             </tr>

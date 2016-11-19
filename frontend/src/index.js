@@ -33,7 +33,7 @@ ReactDOM.render(
             <Route path="investments" component={Investments} />
             <Route path="history" component={History} />
             <Route path="profile" component={Profile} />
-            <Route path="/contract/:contractId" component={Contract} />
+            <Route path="contract/:contractId" component={Contract} />
         </Route>
         <Route path="auth" component={Login}>
             <Route path="auth" component={LoginForm} />

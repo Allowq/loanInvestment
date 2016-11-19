@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import GetFetchParams from './../http';
 
 class RegisterForm extends React.Component {
     constructor (props) {
@@ -34,22 +35,14 @@ class RegisterForm extends React.Component {
             dsignature: this.digitalSignature
         };
         
-        var fetchparams = {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data)
-        };
-
-        fetch('/register/', fetchparams)
-        .then(response => response.json())
-        .then((responseJSON) => {
-            alert(responseJSON.status);
-            return responseJSON;
-        })
-        .catch(error => console.log(error));
+        //fetch('/register/', fetchparams)
+        fetch('/tests/register.json', GetFetchParams(data))
+            .then(response => response.json())
+            .then((responseJSON) => {
+                alert(responseJSON.status);
+                return responseJSON;
+            })
+            .catch(error => console.log(error));
     }
 
     render() {

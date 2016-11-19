@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Global from 'react-global';
 import { browserHistory } from 'react-router';
+import GetFetchParams from './../http';
 
 class LoginForm extends React.Component {
     constructor (props) {
@@ -23,32 +23,20 @@ class LoginForm extends React.Component {
             login: this.login,
             password: this.password
         };
-        
-        var fetchparams = {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data)
-        };
 
-        /*    fetch('/auth/', fetchparams)
-                .then(response => response.json())
-                .then((responseJSON) => {
-                    if (responseJSON.status == 'OK') {
-                        window.uid = responseJSON.uuid;
-                        browserHistory.push('/');
-                    } else {
-                        alert("Bad login or password!");
-                    }
-                    return responseJSON;
-                })
-                .catch(error => console.log(error));
-                */  
-                
-        window.uid = '123123123123';
-        browserHistory.push('/home');
+        //CreateHttpRequest('/auth', data)
+        fetch('/tests/user.json', GetFetchParams(data))
+            .then(response => response.json())
+            .then((responseJSON) => {
+                if (responseJSON.status == 'OK') {
+                    window.uid = responseJSON.uuid;
+                    browserHistory.push('/home');
+                } else {
+                    alert("Bad login or password!");
+                }
+                return responseJSON;
+            })
+            .catch(error => console.log(error));
     }
 
     render() {

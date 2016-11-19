@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Operation from './loan';
 
 class InvestmentOperations extends React.Component {
+    
     render() {
         var operations = [];
 
@@ -10,8 +11,9 @@ class InvestmentOperations extends React.Component {
             operations.push((<Operation 
                 key={o.uid}
                 investor={o.investor}
-                uniqueContract={o.uniqueContract}
+                contract={o.contract}
                 risk={o.risk}
+                remove={()=>this.props.onRemove(o.uid)}
             />));
         });
 
@@ -22,7 +24,7 @@ class InvestmentOperations extends React.Component {
                         <thead>
                             <tr>
                                 <th>Investor</th>
-                                <th>Unique contract</th>
+                                <th>Contract</th>
                                 <th>Risk</th>
                                 <th></th>
                             </tr>
