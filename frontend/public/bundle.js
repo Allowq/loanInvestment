@@ -47081,8 +47081,7 @@
 	                password: this.password
 	            };
 
-	            //CreateHttpRequest('/auth', data)
-	            fetch('/tests/user.json', (0, _http2.default)(data)).then(function (response) {
+	            fetch('/auth', (0, _http2.default)(data)).then(function (response) {
 	                return response.json();
 	            }).then(function (responseJSON) {
 	                if (responseJSON.status == 'OK') {
@@ -47207,8 +47206,7 @@
 	                dsignature: this.digitalSignature
 	            };
 
-	            //fetch('/register/', fetchparams)
-	            fetch('/tests/register.json', (0, _http2.default)(data)).then(function (response) {
+	            fetch('/register', (0, _http2.default)(data)).then(function (response) {
 	                return response.json();
 	            }).then(function (responseJSON) {
 	                alert(responseJSON.status);

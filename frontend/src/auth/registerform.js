@@ -35,8 +35,7 @@ class RegisterForm extends React.Component {
             dsignature: this.digitalSignature
         };
         
-        //fetch('/register/', fetchparams)
-        fetch('/tests/register.json', GetFetchParams(data))
+        fetch('/register',  GetFetchParams(data))
             .then(response => response.json())
             .then((responseJSON) => {
                 alert(responseJSON.status);

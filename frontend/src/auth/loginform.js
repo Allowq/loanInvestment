@@ -24,8 +24,7 @@ class LoginForm extends React.Component {
             password: this.password
         };
 
-        //CreateHttpRequest('/auth', data)
-        fetch('/tests/user.json', GetFetchParams(data))
+        fetch('/auth', GetFetchParams(data))
             .then(response => response.json())
             .then((responseJSON) => {
                 if (responseJSON.status == 'OK') {
