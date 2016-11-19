@@ -21,7 +21,7 @@ class Login extends React.Component {
         return (
             <div className="container" style={style}> 
                 <div className="wrapper" style={wrapperStyle}>
-                <h2 style={nowrap}>Loan instentments</h2> 
+                <h2 style={nowrap}>Loan investments</h2> 
                 <form className="form-signin">     
                 <ul className="nav nav-tabs">
                     <li><Link to="/auth/auth">Login</Link></li>

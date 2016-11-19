@@ -10,15 +10,17 @@ import Login from './auth/login';
 import LoginForm from './auth/loginform';
 import RegisterForm from './auth/registerform';
 import 'bootstrap/dist/css/bootstrap.css';
-import auth from './auth';
+import Global from 'react-global';
+
+window.uid = '';
 
 function requireAuth(nextState, replace) {
-  if (!auth.loggedIn()) {
-    replace({
-      pathname: '/auth',
-      state: { nextPathname: nextState.location.pathname }
-    })
-  }
+    if (window.uid == '') {
+        replace({
+            pathname: '/auth',
+            state: { nextPathname: nextState.location.pathname }
+        })
+    }
 }
 
 ReactDOM.render(

@@ -5,6 +5,12 @@ import {Navbar, Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
 import Link from 'react-router';
 
 class Header extends React.Component {
+
+	_logout() {
+		window.uid = '';
+		location.reload();
+	}
+
     render() {
         let style = {
           fontSize: '30px'
@@ -23,7 +29,7 @@ class Header extends React.Component {
               </Nav>
               <Nav pullRight>
                 <NavItem eventKey={1} href="#">User name</NavItem>
-                <NavItem eventKey={2} href="#">Logout</NavItem>
+                <NavItem eventKey={2} href="#" onClick={this._logout}>Logout</NavItem>
                 <NavItem eventKey={3} href="#"></NavItem>
               </Nav>
             </Navbar.Collapse>
