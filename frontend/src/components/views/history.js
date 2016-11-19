@@ -5,7 +5,11 @@ class History extends React.Component {
     render () {
         return (
             <div> 
-                <h1>History</h1>
+                <h2>History</h2>
+                
+                история
+                -------------------
+                инвестиция
             </div>
         );
     }
