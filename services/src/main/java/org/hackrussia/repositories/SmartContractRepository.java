@@ -6,6 +6,8 @@ import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class SmartContractRepository implements CrudRepository<SmartContract, String> {
 
@@ -24,7 +26,7 @@ public class SmartContractRepository implements CrudRepository<SmartContract, St
     }
 
     @Override
-    public Iterable<SmartContract> findAll() {
+    public List<SmartContract> findAll() {
         return mongoOperations.findAll(SmartContract.class);
     }
 

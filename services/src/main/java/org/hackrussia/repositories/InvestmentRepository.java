@@ -6,6 +6,8 @@ import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class InvestmentRepository implements CrudRepository<Investment, String> {
 
@@ -24,7 +26,7 @@ public class InvestmentRepository implements CrudRepository<Investment, String> 
     }
 
     @Override
-    public Iterable<Investment> findAll() {
+    public List<Investment> findAll() {
         return mongoOperations.findAll(Investment.class);
     }
 

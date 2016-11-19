@@ -14,6 +14,5 @@ import java.util.UUID;
 @AllArgsConstructor
 public class Response {
     private UUID uuid;
-    private Object data;
     private HttpStatus status;
 }

@@ -109,6 +109,8 @@
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>${tomcat7-maven-plugin.version}</version>
                 <configuration>
+                    <port>8081</port>
+                    <hostName>10.212.1.200</hostName>
                     <path>/</path>
                     <systemProperties>
                         <JAVA_OPTS>-Xms512m -Xmx1024m -XX:MaxPermSize=512m</JAVA_OPTS>
