@@ -7,6 +7,7 @@ class LeftBar extends React.Component {
     render () {
         return (
             <ul className="nav nav-pills nav-stacked">
+                <li><Link to="home">Home</Link></li>
                 <li><Link to="loans">Loans</Link></li>
                 <li><Link to="investments">Investment</Link></li>
                 <li><Link to="history">History</Link></li>

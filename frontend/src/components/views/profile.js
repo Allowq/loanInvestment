@@ -14,9 +14,6 @@ class Profile extends React.Component {
                         <label>Password</label>
                         <input className="form-control" type="password" />
                         <br />
-                        <label>UID</label>
-                        <input className="form-control" type="text" />
-                        <br />
                         <label>Bitcoin GUID</label>
                         <input className="form-control" type="text" />
                         <br />

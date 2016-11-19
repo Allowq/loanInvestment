@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-class Contract extends React.Component {
-    render() {
+class NoMatch extends React.Component {
+    render () {
         return (
             <div>
-                <h2>Contract</h2>
+                404 Bad Request
             </div>
-        );
+        )
     }
 }
 
-export default Contract;
+export default NoMatch;
