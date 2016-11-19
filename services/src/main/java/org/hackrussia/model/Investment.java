@@ -24,6 +24,9 @@ public class Investment implements Serializable {
     private Client borrower;
     private float risk;
 
+    private boolean isAcceptInvestor;
+    private boolean isAcceptBorrower;
+
     @PersistenceConstructor
     public Investment(Client investor, Client borrower, float risk) {
         super();

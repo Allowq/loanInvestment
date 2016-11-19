@@ -1,6 +1,6 @@
 package org.hackrussia.repositories;
 
-import org.hackrussia.model.Client;
+import org.hackrussia.model.Proposition;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Query;
@@ -9,34 +9,34 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ClientRepository implements CrudRepository<Client, String> {
+public class PropositionRepository implements CrudRepository<Proposition, String> {
 
     @Autowired
     private MongoOperations mongoOperations;
 
     @Override
-    public Client save(Client entity) {
+    public Proposition save(Proposition entity) {
         mongoOperations.save(entity);
         return entity;
     }
 
     @Override
-    public Client findOne(String primaryKey) {
-        return mongoOperations.findById(primaryKey, Client.class);
+    public Proposition findOne(String primaryKey) {
+        return mongoOperations.findById(primaryKey, Proposition.class);
     }
 
     @Override
-    public List<Client> findAll() {
-        return mongoOperations.findAll(Client.class);
+    public List<Proposition> findAll() {
+        return mongoOperations.findAll(Proposition.class);
     }
 
     @Override
     public Long count() {
-        return mongoOperations.count(Query.query(null), Client.class);
+        return mongoOperations.count(Query.query(null), Proposition.class);
     }
 
     @Override
-    public void delete(Client entity) {
+    public void delete(Proposition entity) {
         mongoOperations.remove(entity);
     }
 
@@ -45,12 +45,12 @@ public class ClientRepository implements CrudRepository<Client, String> {
         return mongoOperations.exists(Query.query(null), primaryKey);
     }
 
-    public List<Client> findByCriteria(Query query) {
-        return mongoOperations.find(query, Client.class);
+    public List<Proposition> findByCriteria(Query query) {
+        return mongoOperations.find(query, Proposition.class);
     }
 
     public boolean existByCriteria(Query query) {
-        return mongoOperations.exists(query, Client.class);
+        return mongoOperations.exists(query, Proposition.class);
     }
 
 }

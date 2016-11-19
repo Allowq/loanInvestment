@@ -5,9 +5,11 @@ import lombok.Setter;
 import lombok.ToString;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceConstructor;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Getter
 @Setter
@@ -20,6 +22,8 @@ public class Client implements Serializable {
     private String eSignature;
     private String bGuid;
     private String password;
+    @DBRef(db = "proposition")
+    private List<Proposition> propositions;
 
     @PersistenceConstructor
     public Client(String login, String password, String bGuid, String eSignature) {
