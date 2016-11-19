@@ -44,4 +44,8 @@ public class InvestmentRepository implements CrudRepository<Investment, String> 
     public boolean exists(String primaryKey) {
         return mongoOperations.exists(Query.query(null), primaryKey);
     }
+
+    public List<Investment> findByCriteria(Query query) {
+        return mongoOperations.find(query, Investment.class);
+    }
 }

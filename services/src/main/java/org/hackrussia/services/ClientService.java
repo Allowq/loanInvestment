@@ -1,7 +1,7 @@
 package org.hackrussia.services;
 
 import org.hackrussia.model.Client;
-import org.hackrussia.model.dto.ClientDTO;
+import org.hackrussia.model.dto.ClientResp;
 import org.hackrussia.repositories.ClientRepository;
 import org.hackrussia.repositories.CrudRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,9 +25,9 @@ public class ClientService implements CrudRepository<Client, String> {
         return repository.findOne(primaryKey);
     }
 
-    public ClientDTO find(String primaryKey) {
+    public ClientResp find(String primaryKey) {
         Client client = repository.findOne(primaryKey);
-        return new ClientDTO(client.getId(), client.getLogin(), client.getESignature(), client.getBGuid(), client.getPropositions());
+        return new ClientResp(client.getId(), client.getLogin(), client.getESignature(), client.getBGuid(), client.getPropositions());
     }
 
     @Override

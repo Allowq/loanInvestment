@@ -1,15 +1,16 @@
-package org.hackrussia.dto.request;
+package org.hackrussia.model.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hackrussia.dto.Request;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class RequestPropClose extends Request {
-    private boolean isClosed;
+public class InvestmentReq {
+    private String investor;
+    private String borrower;
+    private float risk;
 }

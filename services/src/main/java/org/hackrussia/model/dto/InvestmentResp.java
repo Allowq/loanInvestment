@@ -9,10 +9,11 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class PropositionDTO {
+public class InvestmentResp {
     private String id;
-    private String title;
-    private String disc;
-    private double sum;
-    private boolean isClosed;
+    private String investor;
+    private String borrower;
+    private float risk;
+    private boolean isAcceptInvestor;
+    private boolean isAcceptBorrower;
 }

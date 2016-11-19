@@ -20,7 +20,7 @@ public class PropositionService {
     private PropositionRepository propositionRepository;
 
     public void addProposition(String clientId, String title, String disc, double sum) {
-        Proposition proposition = new Proposition(title, disc, sum);
+        Proposition proposition = new Proposition(title, disc, sum, false);
         propositionRepository.save(proposition);
         Client client = clientRepository.findOne(clientId);
         if (client.getPropositions() != null) {

@@ -2,11 +2,10 @@ package org.hackrussia.controller;
 
 import org.hackrussia.dto.Response;
 import org.hackrussia.dto.request.CredentialReq;
-import org.hackrussia.dto.request.RegistryRequest;
-import org.hackrussia.dto.request.data.RegistryData;
-import org.hackrussia.dto.response.ResponseClient;
+import org.hackrussia.dto.request.RequestData;
+import org.hackrussia.dto.response.ResponseData;
 import org.hackrussia.model.Client;
-import org.hackrussia.model.dto.ClientDTO;
+import org.hackrussia.model.dto.ClientReq;
 import org.hackrussia.services.AuthService;
 import org.hackrussia.services.ClientService;
 import org.hackrussia.utils.HttpSessionEmulator;
@@ -28,29 +27,29 @@ public class AuthController {
     @Autowired
     private HttpSessionEmulator sessionEmulator;
 
-    @RequestMapping(value = "/auth/", method = RequestMethod.POST)
+    @RequestMapping(value = "/auth", method = RequestMethod.POST)
     @ResponseBody
     public Response auth(@RequestBody CredentialReq credential) {
         Client client = authService.authProcessor(credential.getLogin(), credential.getPassword()).get(0);
         if (client != null) {
             UUID uuid = UUID.randomUUID();
             sessionEmulator.put(uuid, client.getId());
-            return new ResponseClient(uuid, new ClientDTO(client.getId(), null, null, null, null), HttpStatus.OK);
+            return new ResponseData(HttpStatus.OK, uuid, client.getId());
         } else {
-            return new Response(null, HttpStatus.BAD_GATEWAY);
+            return new Response(HttpStatus.BAD_GATEWAY);
         }
     }
 
-    @RequestMapping(value = "/register/", method = RequestMethod.POST)
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
     @ResponseBody
-    public Response register(@RequestBody RegistryRequest request) {
-        RegistryData registryData = request.getData();
+    public Response register(@RequestBody RequestData<ClientReq> request) {
+        ClientReq data = request.getData();
         Client client = new Client(
-                registryData.getLogin(),
-                registryData.getPassword(),
-                registryData.getBGuid(),
-                registryData.getDSignature());
+                data.getLogin(),
+                data.getPassword(),
+                data.getBGuid(),
+                data.getDSignature());
         clientService.save(client);
-        return new Response(null, HttpStatus.OK);
+        return new Response(HttpStatus.OK);
     }
 }

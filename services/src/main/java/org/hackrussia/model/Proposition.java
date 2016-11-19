@@ -18,9 +18,10 @@ public class Proposition {
     private boolean isClosed;
 
     @PersistenceConstructor
-    public Proposition(String title, String disc, double sum) {
+    public Proposition(String title, String disc, double sum, boolean isClosed) {
         this.title = title;
         this.disc = disc;
         this.sum = sum;
+        this.isClosed = isClosed;
     }
 }
